@@ -1,158 +1,144 @@
-# Walmart Sales Data Analysis
+# 🛒 Mega-Mart Sales Data Analysis
 
-## About
+## 📌 About
 
-This project aims to explore the Walmart Sales data to understand top performing branches and products, sales trend of of different products, customer behaviour. The aims is to study how sales strategies can be improved and optimized. The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting).
+This project explores Mega-Mart sales data to analyze top-performing branches and products, sales trends, and customer behavior. The goal is to identify opportunities for optimizing sales strategies and improving performance.
 
-"In this recruiting competition, job-seekers are provided with historical sales data for 45 Walmart stores located in different regions. Each store contains many departments, and participants must project the sales for each department in each store. To add to the challenge, selected holiday markdown events are included in the dataset. These markdowns are known to affect sales, but it is challenging to predict which departments are affected and the extent of the impact." [source](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting)
+> 📢 "In this recruiting competition, job-seekers are provided with historical sales data for 45 Mega-Mart stores located in different regions. Each store contains many departments, and participants must project the sales for each department in each store. To add to the challenge, selected holiday markdown events are included in the dataset. These markdowns are known to affect sales, but it is challenging to predict which departments are affected and the extent of the impact."
 
-## Purposes Of The Project
+## 🎯 Project Objectives
 
-The major aim of thie project is to gain insight into the sales data of Walmart to understand the different factors that affect sales of the different branches.
+The primary objective of this project is to gain insights into Mega-Mart's sales data and understand the various factors influencing sales across different branches.
 
-## About Data
+## 📊 Dataset Overview
 
-The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting). This dataset contains sales transactions from a three different branches of Walmart, respectively located in Mandalay, Yangon and Naypyitaw. The data contains 17 columns and 1000 rows:
+The dataset contains sales transactions from three Mega-Mart branches located in Mandalay, Yangon, and Naypyitaw. It includes 17 columns and 1,000 rows:
 
-| Column                  | Description                             | Data Type      |
-| :---------------------- | :-------------------------------------- | :------------- |
-| invoice_id              | Invoice of the sales made               | VARCHAR(30)    |
-| branch                  | Branch at which sales were made         | VARCHAR(5)     |
-| city                    | The location of the branch              | VARCHAR(30)    |
-| customer_type           | The type of the customer                | VARCHAR(30)    |
-| gender                  | Gender of the customer making purchase  | VARCHAR(10)    |
-| product_line            | Product line of the product solf        | VARCHAR(100)   |
-| unit_price              | The price of each product               | DECIMAL(10, 2) |
-| quantity                | The amount of the product sold          | INT            |
-| VAT                 | The amount of tax on the purchase       | FLOAT(6, 4)    |
-| total                   | The total cost of the purchase          | DECIMAL(10, 2) |
-| date                    | The date on which the purchase was made | DATE           |
-| time                    | The time at which the purchase was made | TIMESTAMP      |
-| payment_method                 | The total amount paid                   | DECIMAL(10, 2) |
-| cogs                    | Cost Of Goods sold                      | DECIMAL(10, 2) |
-| gross_margin_percentage | Gross margin percentage                 | FLOAT(11, 9)   |
-| gross_income            | Gross Income                            | DECIMAL(10, 2) |
-| rating                  | Rating                                  | FLOAT(2, 1)    |
+| 📌 Column                  | 📖 Description                             | 🔢 Data Type      |
+|-------------------------|-----------------------------------------|---------------|
+| invoice_id              | Invoice identifier                     | VARCHAR(30)   |
+| branch                  | Store branch code                      | VARCHAR(5)    |
+| city                    | Branch location                        | VARCHAR(30)   |
+| customer_type           | Type of customer                       | VARCHAR(30)   |
+| gender                  | Gender of the customer                 | VARCHAR(10)   |
+| product_line            | Product category                       | VARCHAR(100)  |
+| unit_price              | Price per unit                         | DECIMAL(10,2) |
+| quantity                | Number of units sold                   | INT           |
+| VAT                     | Value-added tax amount                 | FLOAT(6,4)    |
+| total                   | Total transaction amount               | DECIMAL(10,2) |
+| date                    | Purchase date                          | DATE          |
+| time                    | Purchase time                          | TIMESTAMP     |
+| payment_method          | Payment method used                    | VARCHAR(30)   |
+| cogs                    | Cost of goods sold                     | DECIMAL(10,2) |
+| gross_margin_percentage | Gross margin percentage                | FLOAT(11,9)   |
+| gross_income            | Gross income                           | DECIMAL(10,2) |
+| rating                  | Customer rating                        | FLOAT(2,1)    |
 
-### Analysis List
+## 📌 Data Analysis Scope
 
-1. Product Analysis
+### 1️⃣ Product Analysis
+- Identify top-performing product lines.
+- Assess underperforming product lines that require improvement.
 
-> Conduct analysis on the data to understand the different product lines, the products lines performing best and the product lines that need to be improved.
+### 2️⃣ Sales Analysis
+- Analyze sales trends across different products and branches.
+- Measure the effectiveness of sales strategies and suggest optimizations.
 
-2. Sales Analysis
+### 3️⃣ Customer Analysis
+- Segment customers based on purchase behavior.
+- Determine the profitability of different customer segments.
 
-> This analysis aims to answer the question of the sales trends of product. The result of this can help use measure the effectiveness of each sales strategy the business applies and what modificatoins are needed to gain more sales.
+## 🛠 Approach
 
-3. Customer Analysis
+### 🔍 1. **Data Wrangling**
+- Identify and handle missing values.
+- Load data into a structured database.
+- Ensure data integrity by setting constraints (e.g., `NOT NULL`).
 
-> This analysis aims to uncover the different customers segments, purchase trends and the profitability of each customer segment.
+### 🔨 2. **Feature Engineering**
+- **🕒 `time_of_day`**: Categorizes purchases into Morning, Afternoon, and Evening sales.
+- **📆 `day_name`**: Extracts the weekday (e.g., Mon, Tue, Wed) to analyze peak sales days.
+- **📅 `month_name`**: Extracts the transaction month to identify seasonal trends.
 
-## Approach Used
+### 📊 3. **Exploratory Data Analysis (EDA)**
+- Visualize key sales trends.
+- Address business questions using statistical analysis.
 
-1. **Data Wrangling:** This is the first step where inspection of data is done to make sure **NULL** values and missing values are detected and data replacement methods are used to replace, missing or **NULL** values.
+## 📌 Business Questions Addressed
 
-> 1. Build a database
-> 2. Create table and insert the data.
-> 3. Select columns with null values in them. There are no null values in our database as in creating the tables, we set **NOT NULL** for each field, hence null values are filtered out.
+### 📍 General Questions
+1. 🌍 How many unique cities are represented in the data?
+2. 🏙️ In which city is each branch located?
 
-2. **Feature Engineering:** This will help use generate some new columns from existing ones.
+### 📦 Product-Related Questions
+1. 🔢 How many unique product lines are available?
+2. 💳 What is the most common payment method?
+3. 🛍️ Which product line has the highest sales?
+4. 💰 What is the total revenue by month?
+5. 📆 Which month had the highest COGS?
+6. 📈 Which product line generated the most revenue?
+7. 🌆 Which city generated the highest revenue?
+8. 🏷️ Which product line had the highest VAT?
+9. 📊 Which branch sold more products than the average sales volume?
+10. 🚻 What is the most common product line by gender?
+11. ⭐ What is the average rating per product line?
 
-> 1. Add a new column named `time_of_day` to give insight of sales in the Morning, Afternoon and Evening. This will help answer the question on which part of the day most sales are made.
+### 💵 Sales-Related Questions
+1. 🕒 Sales distribution by time of day (per weekday).
+2. 👥 Which customer type contributes the most to revenue?
+3. 🌍 Which city has the highest tax percentage (VAT)?
+4. 💳 Which customer type pays the most in VAT?
 
-> 2. Add a new column named `day_name` that contains the extracted days of the week on which the given transaction took place (Mon, Tue, Wed, Thur, Fri). This will help answer the question on which week of the day each branch is busiest.
+### 🛍️ Customer-Related Questions
+1. 🔢 How many unique customer types exist?
+2. 💳 How many unique payment methods are there?
+3. 👥 What is the most common customer type?
+4. 🏷️ Which customer type buys the most?
+5. 🚻 What is the predominant gender of customers?
+6. 🏢 What is the gender distribution per branch?
+7. ⭐ Which time of the day receives the most customer ratings?
+8. 📅 Which day of the week has the highest average rating?
+9. 📊 Which branch receives the highest customer ratings?
 
-> 3. Add a new column named `month_name` that contains the extracted months of the year on which the given transaction took place (Jan, Feb, Mar). Help determine which month of the year has the most sales and profit.
+## 💰 Revenue and Profit Calculations
 
-2. **Exploratory Data Analysis (EDA):** Exploratory data analysis is done to answer the listed questions and aims of this project.
+Formulas used in analysis:
 
-3. **Conclusion:**
+\[ 📈 COGS = \text{unit price} \times \text{quantity} \]
 
-## Business Questions To Answer
+\[ 🏷️ VAT = 5\% \times COGS \]
 
-### Generic Question
+\[ 💵 \text{Total Sales} = COGS + VAT \]
 
-1. How many unique cities does the data have?
-2. In which city is each branch?
+\[ 💰 \text{Gross Income} = \text{Total Sales} - COGS \]
 
-### Product
+\[ 📊 \text{Gross Margin Percentage} = \frac{\text{Gross Income}}{\text{Total Sales}} \times 100 \]
 
-1. How many unique product lines does the data have?
-2. What is the most common payment method?
-3. What is the most selling product line?
-4. What is the total revenue by month?
-5. What month had the largest COGS?
-6. What product line had the largest revenue?
-5. What is the city with the largest revenue?
-6. What product line had the largest VAT?
-7. Fetch each product line and add a column to those product line showing "Good", "Bad". Good if its greater than average sales
-8. Which branch sold more products than average product sold?
-9. What is the most common product line by gender?
-12. What is the average rating of each product line?
+### 📌 Example Calculation:
 
-### Sales
+**Given Data:**
+- 🏷️ Unit Price = $45.79$
+- 🔢 Quantity = $7$
 
-1. Number of sales made in each time of the day per weekday
-2. Which of the customer types brings the most revenue?
-3. Which city has the largest tax percent/ VAT (**Value Added Tax**)?
-4. Which customer type pays the most in VAT?
+\[ COGS = 45.79 \times 7 = 320.53 \]
 
-### Customer
+\[ VAT = 5\% \times 320.53 = 16.0265 \]
 
-1. How many unique customer types does the data have?
-2. How many unique payment methods does the data have?
-3. What is the most common customer type?
-4. Which customer type buys the most?
-5. What is the gender of most of the customers?
-6. What is the gender distribution per branch?
-7. Which time of the day do customers give most ratings?
-8. Which time of the day do customers give most ratings per branch?
-9. Which day fo the week has the best avg ratings?
-10. Which day of the week has the best average ratings per branch?
+\[ 💵 \text{Total Sales} = 320.53 + 16.0265 = 336.5565 \]
 
+\[ 📊 \text{Gross Margin Percentage} = \frac{16.0265}{336.5565} \times 100 \approx 4.76\% \]
 
-## Revenue And Profit Calculations
+## 🖥️ Code Implementation
 
-$ COGS = unitsPrice * quantity $
-
-$ VAT = 5\% * COGS $
-
-$VAT$ is added to the $COGS$ and this is what is billed to the customer.
-
-$ total(gross_sales) = VAT + COGS $
-
-$ grossProfit(grossIncome) = total(gross_sales) - COGS $
-
-**Gross Margin** is gross profit expressed in percentage of the total(gross profit/revenue)
-
-$ \text{Gross Margin} = \frac{\text{gross income}}{\text{total revenue}} $
-
-<u>**Example with the first row in our DB:**</u>
-
-**Data given:**
-
-- $ \text{Unite Price} = 45.79 $
-- $ \text{Quantity} = 7 $
-
-$ COGS = 45.79 * 7 = 320.53 $
-
-$ \text{VAT} = 5\% * COGS\\= 5\%  320.53 = 16.0265 $
-
-$ total = VAT + COGS\\= 16.0265 + 320.53 = $336.5565$
-
-$ \text{Gross Margin Percentage} = \frac{\text{gross income}}{\text{total revenue}}\\=\frac{16.0265}{336.5565} = 0.047619\\\approx 4.7619\% $
-
-## Code
-
-For the rest of the code, check the [SQL_queries.sql](https://github.com/Princekrampah/WalmartSalesAnalysis/blob/master/SQL_queries.sql) file
+For SQL queries used in data analysis, refer to [SQL_queries.sql](https://github.com/Princekrampah/WalmartSalesAnalysis/blob/master/SQL_queries.sql).
 
 ```sql
--- Create database
-CREATE DATABASE IF NOT EXISTS walmartSales;
+-- 📂 Create database
+CREATE DATABASE IF NOT EXISTS megamartSales;
 
--- Create table
+-- 📋 Create sales table
 CREATE TABLE IF NOT EXISTS sales(
-	invoice_id VARCHAR(30) NOT NULL PRIMARY KEY,
+    invoice_id VARCHAR(30) NOT NULL PRIMARY KEY,
     branch VARCHAR(5) NOT NULL,
     city VARCHAR(30) NOT NULL,
     customer_type VARCHAR(30) NOT NULL,
@@ -161,13 +147,13 @@ CREATE TABLE IF NOT EXISTS sales(
     unit_price DECIMAL(10,2) NOT NULL,
     quantity INT NOT NULL,
     tax_pct FLOAT(6,4) NOT NULL,
-    total DECIMAL(12, 4) NOT NULL,
+    total DECIMAL(12,4) NOT NULL,
     date DATETIME NOT NULL,
     time TIME NOT NULL,
     payment VARCHAR(15) NOT NULL,
     cogs DECIMAL(10,2) NOT NULL,
     gross_margin_pct FLOAT(11,9),
-    gross_income DECIMAL(12, 4),
-    rating FLOAT(2, 1)
+    gross_income DECIMAL(12,4),
+    rating FLOAT(2,1)
 );
 ```
