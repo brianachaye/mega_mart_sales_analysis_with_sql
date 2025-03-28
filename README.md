@@ -130,7 +130,7 @@ Formulas used in analysis:
 
 ## 🖥️ Code Implementation
 
-For SQL queries used in data analysis, refer to [SQL_queries.sql](https://github.com/Princekrampah/WalmartSalesAnalysis/blob/master/SQL_queries.sql).
+For SQL queries used in data analysis, refer to [SQL_queries.sql](sql_queries.sql).
 
 ```sql
 -- 📂 Create database
